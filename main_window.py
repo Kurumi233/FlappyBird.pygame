@@ -66,6 +66,7 @@ class MainScene(object):
         self.map.reset()
         self.pipe.reset()
         self.bird.reset()
+        self.ready = False
 
     def _handle_event(self):
         if not self.ready or self.gg:
@@ -94,7 +95,7 @@ class MainScene(object):
 
     def start(self):
         while not self.ready:
-            self.map.draw()
+            self.draw_elements()
             self.scene.blit(self.ready_scene, (0, 0))
             self._handle_event()
             pygame.display.update()
@@ -103,8 +104,7 @@ class MainScene(object):
 
     def end(self):
         while not self.ready:
-            self.map.draw()
-            self.scene.blit(self.gg_scene, (0, 0))
+            self.draw_elements()
             self._handle_event()
             pygame.display.update()
             self.clock.tick(self.fps)

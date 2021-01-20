@@ -12,12 +12,13 @@ class Bird(object):
         self.size = pygame.image.load('src/0.png').get_size()
 
         self.status = 0
-        self.status_img = [pygame.image.load('src/%d.png' % x) for x in range(3)]
+        self.status_img = [pygame.image.load('src/%d.png' % x) for x in range(8)]
 
         # 飞行变量
         self.is_flapped = False
         self.upspeed = 10
         self.downspeed = 10
+        self.times = 0
 
     def update(self):
         if self.is_flapped:
@@ -26,6 +27,10 @@ class Bird(object):
         else:
             self.y += self.downspeed
             self.downspeed += 0.2
+
+        self.times += 1
+        if self.times % 5 == 0:
+            self.status = (self.status + 1) % 8
 
         self.collision_detection()
 
@@ -42,6 +47,7 @@ class Bird(object):
     def reset(self):
         self.x, self.y = self.init_pos
         self.status = 0
+        self.times = 0
 
     def draw(self):
         self.scene.blit(self.status_img[self.status], (self.x, self.y))
