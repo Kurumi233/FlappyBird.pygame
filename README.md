@@ -25,4 +25,4 @@ pip install pygame
 
 
 
-![overall](E:\Kn\Git\FlappyBird.pygame\img\overall.png)
+![overall](img/overall.png)
