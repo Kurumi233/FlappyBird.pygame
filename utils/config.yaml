@@ -1,11 +1,10 @@
-urls:
-  background: src/bg.png
-  bgm: src/bgm.png
+caption: 'FlappyBird.pygame @Kurumi233'
 
-game_setting:
-  fps: 30
-  width: 480
-  height: 600
+fps: 50
+width: 400
+height: 600
 
-  up_speed: 10
-  down_speed: 10
+font: 'Arial'
+font_size: 30
+
+speed: 2
